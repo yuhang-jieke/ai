@@ -1,0 +1,68 @@
+# prometau configuration file
+# HTTP Server Configuration
+server:
+  type: "gin"  # Options: gin, echo, fiber, chi (Coming soon)
+  host: "0.0.0.0"
+  port: 8080
+  read_timeout: 30
+  write_timeout: 30
+  mode: "release"  # debug, release, test
+
+database:
+  driver: "mysql"
+  host: "115.190.57.118"
+  port: 3306
+  database: "ai"
+  username: "root"
+  password: "4ay1nkal3u8ed77y"
+  max_open_conns: 100
+  max_idle_conns: 10
+  conn_max_lifetime: 3600
+
+redis:
+  host: "115.190.57.118"
+  port: 6379
+  password: "4ay1nkal3u8ed77y"
+  db: 0
+
+log:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  file_name: "logs/app.log"
+  max_size: 100
+  max_backups: 3
+  max_age: 7
+
+nacos:
+  server_addr: "115.190.57.118:8848"
+  namespace: "public"
+  data_id: "prometau.yaml"
+  group: "DEFAULT_GROUP"
+
+# Object Storage Configuration (minio / oss / rustfs)
+storage:
+  type: "minio"  # Storage type: minio, oss, rustfs
+
+  # MinIO Configuration (if type = minio)
+  minio:
+    endpoint: "115.190.57.118:9000"
+    access_key_id: "minioadmin"
+    secret_access_key: "minioadmin"
+    use_ssl: false
+    bucket: "yuhang"
+    region: "us-east-1"
+  
+  # Aliyun OSS Configuration (if type = oss)
+  oss:
+    endpoint: "oss-cn-shanghai.aliyuncs.com"
+    access_key_id: "LTAI5tSYLWEhPs3Vjh4kTvGR"
+    access_key_secret: "R8R1Clr66RQiQZtAuPPiCV3steCtUG"
+    bucket: "byh666"
+    region: "cn-shanghai"
+  
+  # RustFS Configuration (if type = rustfs)
+  rustfs:
+    endpoint: "http://localhost:8086"
+    token: "your-rustfs-token"
+    bucket: "default"

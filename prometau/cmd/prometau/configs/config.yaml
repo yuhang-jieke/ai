@@ -1,0 +1,42 @@
+# prometau configuration file
+# Priority: Nacos > Environment Variables > Config File > Default Values
+
+server:
+  host: "127.0.0.1"
+  port: 8080
+  read_timeout: 30
+  write_timeout: 30
+
+database:
+  driver: "mysql"
+  host: "115.190.57.118"
+  port: 3306
+  database: "ai"
+  username: "root"
+  password: "4ay1nkal3u8ed77y"
+  max_open_conns: 100
+  max_idle_conns: 10
+  conn_max_lifetime: 3600
+
+redis:
+  host: "115.190.57.118"
+  port: 6379
+  password: "4ay1nkal3u8ed77y"
+  db: 0
+
+log:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  file_name: "logs/app.log"
+  max_size: 100
+  max_backups: 3
+  max_age: 7
+
+nacos:
+  server_addr: "115.190.57.118:8848"
+  namespace: "public"
+  data_id: "prometau.yaml"
+  group: "DEFAULT_GROUP"
+  username: ""
+  password: ""
